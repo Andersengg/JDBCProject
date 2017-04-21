@@ -4,32 +4,34 @@ package domain;
  * Created by Louise Windows on 18-04-2017.
  */
 public class User {
+    int id;
     String username = "";
-    String id = "";
-    String role = "";
     String password = "";
+    String role = "";
 
-    public User(String username, String password, String id, String role) {
+
+    public User(int id, String username, String password, String role) {
         this.id = id;
-        this.role = role;
         this.username = username;
         this.password = password;
+        this.role = role;
 
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public String getId() {
-        return id;
+    public String getPassword(){
+        return password;
     }
 
     public String getRole() {
         return role;
     }
 
-    public String getPassword(){
-        return password;
-    }
 }

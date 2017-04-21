@@ -22,12 +22,10 @@ public class LoginFrame extends JFrame {
     public JTextField emailText;
     private JPasswordField passwordText;
     private JPanel logo, comp, panel;
-    protected DBFacade db;
     public LoginController loginController = new LoginController();
 
 
     public LoginFrame() {
-        db = new DBFacade();
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Login Window");
         this.setBackground(Color.WHITE);
@@ -137,6 +135,12 @@ public class LoginFrame extends JFrame {
 
     public void loginValidation(String user, String password) {
         boolean isValid = loginController.validateLogin(user, password);
+
+        /* TODO place correctly
+        JOptionPane.showMessageDialog(null, "Log in failed: Username and " +
+                "password does not match!");
+        */
+
         DBFacade db = new DBFacade();
         if (db.findUserByUserName(user).getRole().equals("management") && isValid) {
             JOptionPane.showMessageDialog(null, "Logged in as management");
